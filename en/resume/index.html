@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en" ontouchstart="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Daniele Mancini | Resume</title>
+
+        <!-- generics -->
+        <link rel="icon" href="/assets/favicon/favicon32.png" sizes="32x32">
+        <link rel="icon" href="/assets/favicon/favicon57.png" sizes="57x57">
+        <link rel="icon" href="/assets/favicon/favicon76.png" sizes="76x76">
+        <link rel="icon" href="/assets/favicon/favicon96.png" sizes="96x96">
+        <link rel="icon" href="/assets/favicon/favicon128.png" sizes="128x128">
+        <link rel="icon" href="/assets/favicon/favicon192.png" sizes="192x192">
+        <link rel="icon" href="/assets/favicon/favicon228.png" sizes="228x228">
+
+        <!-- Android -->
+        <link rel="shortcut icon" sizes="196x196" href="/assets/favicon/favicon196.png">
+
+        <!-- iOS -->
+        <link rel="apple-touch-icon" href="/assets/favicon/favicon120.png" sizes="120x120">
+        <link rel="apple-touch-icon" href="/assets/favicon/favicon152.png" sizes="152x152">
+        <link rel="apple-touch-icon" href="/assets/favicon/favicon180.png" sizes="180x180">
+
+        <!-- Windows 8 IE 10 -->
+        <meta name="msapplication-TileColor" content="#F5F5F5">
+        <meta name="msapplication-TileImage" content="/assets/favicon/favicon144.png">
+
+        <!-- Windows 8.1 + IE11 and above -->
+        <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml" />
+
+        <style>
+            :root {
+                --hue: black;
+            }
+
+            body {
+                margin: 0;
+                font-family: "helvetica neue", helvetica, arial, sans-serif;
+                font-weight: 300;
+                letter-spacing: 0.05em;
+                background: #f5f5f5;
+                color: var(--hue);
+            }
+
+            ::selection {
+                background-color: black;
+                color: white;
+            }
+
+            canvas#bkgr {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -10;
+            }
+
+            #select-lang {
+                position: fixed;
+                display: flex;
+                list-style: none;
+                top: 1.3em;
+                right: 1.3em;
+                border: 1px solid var(--hue);
+                margin: 0;
+                padding: 0;
+                opacity: 1;
+                visibility: visible;
+                transition: opacity 500ms, visibility 500ms;
+            }
+
+            #select-lang a {
+                text-decoration: none;
+            }
+
+            #select-lang li {
+                padding: 0 0.3em;
+                text-decoration: none;
+                font-weight: 400;
+                color: var(--hue);
+            }
+
+            #select-lang li[current] {
+                background: var(--hue);
+                color: white;
+            }
+
+            #content {
+                width: 75%;
+                margin: auto;
+                padding: 20px 10px;
+                background: #f5f5f5cc;
+                background: linear-gradient(90deg, #f5f5f500 0%, #f5f5f5cc 10%, #f5f5f5cc 90%, #f5f5f500 100%);
+            }
+
+            #content h3,
+            b {
+                font-weight: 400;
+            }
+
+            .section-title,
+            #header .name h1 {
+                margin: 2px 0;
+                border-style: solid;
+                border-width: 0 0 2px 0;
+                border-image-source: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20100%22%3E%3Cpath%20d%3D%22M0%2050L200%2055L200%2045L0%2050Z%22%2F%3E%3C%2Fsvg%3E');
+                border-image-slice: 0% 1% 100% 15%;
+            }
+
+            .section-title {
+                margin-left: -6.18%;
+            }
+
+            .section-title > h4 {
+                font-weight: 500;
+            }
+
+            #content > div {
+                margin-top: 50px;
+                margin-bottom: 20px;
+            }
+
+            #content #header {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: flex-end;
+                margin: 50px 0;
+            }
+
+            #header {
+                font-weight: 400;
+            }
+
+            #header .name > *,
+            .section-title > h4 {
+                text-transform: uppercase;
+                margin: 2px 0;
+            }
+
+            #header .name h1 {
+                font-weight: 500;
+                width: 106.18%;
+            }
+
+            .name {
+                min-width: max-content;
+                margin-right: 50px;
+            }
+
+            .info {
+                margin-top: 20px;
+            }
+
+            .info dl {
+                display: grid;
+                grid-template-columns: max-content max-content;
+                grid-gap: 5px 10px;
+                margin: 4px 0;
+                padding-right: 20px;
+            }
+
+            .info dt {
+                font-variant-caps: all-small-caps;
+                text-align: right;
+                width: 1.3em;
+                height: 1.3em;
+            }
+
+            .info dd {
+                margin: auto 0;
+            }
+
+            #content ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+
+            #content ul > li {
+                margin-bottom: 50px;
+            }
+
+            #ps {
+                display: flex;
+                flex-flow: column wrap;
+                align-items: flex-start;
+            }
+
+            #ps p {
+                margin-right: 20px;
+            }
+
+            #my-pic {
+                width: 150px;
+                height: 150px;
+                overflow: hidden;
+            }
+
+            #my-pic img {
+                width: 100%;
+                height: auto;
+            }
+
+            p.side-border {
+                text-indent: 0.5em;
+            }
+
+            #education > ul > li,
+            #experience > ul > li {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+            }
+
+            .work ul li {
+                display: list-item !important;
+                list-style-type: disc;
+                list-style-position: inside;
+                text-indent: -0.5em;
+                margin-bottom: 5px !important;
+            }
+
+            .work h4,
+            .course h4 {
+                font-weight: 300;
+            }
+
+            .period {
+                padding-right: 1em;
+            }
+
+            .period h4 {
+                font-weight: 400;
+                line-height: 1.3em;
+            }
+
+            .heading > *,
+            #projects li .title > h3 {
+                margin: 0;
+            }
+
+            #projects li .title {
+                display: grid;
+                grid-template-columns: min-content auto;
+                grid-column-gap: 15px;
+            }
+
+            #projects .description {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                margin-left: 5em;
+            }
+
+            #projects .description p {
+                margin: 5px 0 10px;
+                padding: 0 5px;
+            }
+
+            #projects .description h6 {
+                margin: 0;
+                padding: 5px 10px;
+                border-bottom: 1px solid #dadada;
+                font-weight: 400;
+            }
+
+            #projects .description .about,
+            #projects .description .role {
+                margin-left: 2%;
+                flex: 1 1 290px;
+            }
+
+            #skills .prog-lang {
+                display: grid;
+                grid-template-columns: max-content auto;
+                grid-gap: 0.5em;
+                align-items: baseline;
+                margin: 10px 0;
+            }
+
+            #skills .prog-lang h5 {
+                margin: 0;
+                text-align: right;
+            }
+
+            #skills .prog-lang dd {
+                position: relative;
+                overflow: hidden;
+                margin: 0;
+                height: 7px;
+            }
+
+            #skills .prog-lang .timeline {
+                height: 1px;
+                margin-top: 3px;
+                background: #bababa;
+            }
+
+            #skills .prog-lang .event {
+                position: absolute;
+                top: 0;
+                height: 100%;
+                background: #555;
+                border-radius: 7px;
+                transition: 800ms cubic-bezier(0.22, 0.61, 0.36, 1);
+                transition-property: margin-left, width;
+                transition-delay: calc(var(--item) * 30ms);
+            }
+
+            #skills .prog-lang:hover .event {
+                margin-left: 0 !important;
+                width: var(--level) !important;
+                transition-duration: 300ms;
+                transition-delay: 0ms;
+            }
+
+            #skills .prog-lang .shift {
+                width: 100%;
+                transition: transform 300ms;
+            }
+
+            #skills .prog-lang:hover .shift {
+                transform: translateY(-1em);
+            }
+
+            #skills .prog-lang .graph-name h5 {
+                font-weight: 500;
+                text-align: center;
+            }
+
+            #skills .prog-lang .values {
+                display: flex;
+            }
+
+            #skills .prog-lang .values h5 {
+                font-weight: 300;
+                font-size: 0.6em;
+                line-height: 1.7em;
+            }
+
+            #skills .prog-lang .caption {
+                height: 1em;
+                margin-top: 0.5em;
+                overflow: hidden; 
+            }
+
+            #skills .prog-lang.idle .event {
+                margin-left: 0 !important;
+                width: 0 !important;
+            }
+
+            #skills .title > h5 {
+                margin: 0;
+            }
+
+            #skills .side-border {
+                margin-top: 1em;
+            }
+
+            #skills .software dt {
+                font-weight: 400;
+                margin-top: 0.3em;
+            }
+
+            #skills .software dd {
+                margin-left: 1em;
+            }
+
+            .skills-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: flex-start;
+            }
+
+            .skills-wrapper > * {
+                flex: 1 1 342px;
+            }
+
+            .side-border,
+            .side-border-children {
+                margin-left: 1em;
+            }
+
+            ul .side-border {
+                margin-left: 5px !important;
+            }
+
+            .side-border-children {
+                padding-left: 0;
+            }
+
+            .side-border-children div > *,
+            .title ~ * {
+                margin: 0.5em 0 0;
+            }
+
+            .side-border-children div > :first-child,
+            .side-border > :first-child {
+                margin-top: 0 !important;
+            }
+
+            .side-border-children div > :last-child,
+            .side-border > :last-child {
+                margin-bottom: 0 !important;
+            }
+
+            .side-border,
+            .side-border-children > * {
+                padding-left: 15px !important;
+                border-style: solid;
+                border-width: 0 0 0 1px;
+                border-image-source: inherit;
+                border-image-slice: inherit;
+                border-image-width: 7px;
+                border-image-outset: 0 0 0 3px;
+                border-image-repeat: stretch;
+            }
+
+            .side-border-children > * {
+                padding-bottom: 10px;
+            }
+
+            .triangle-end {
+                border-image-source: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20200%22%3E%3Cpath%20d%3D%22M50%200L55%20122.06L100%20200L0%20200L45%20122.06L50%200Z%22%2F%3E%3C%2Fsvg%3E');
+                border-image-slice: 15% 0% 50% 100%;
+                border-image-width: 0;
+            }
+
+            .square-end {
+                border-image-source: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20200%22%3E%3Cpath%20d%3D%22M50%200L55%20105L100%20150L50%20200L50%20200L0%20150L45%20105L50%200Z%22%2F%3E%3C%2Fsvg%3E');
+                border-image-slice: 15% 0% 50% 100%;
+                padding-bottom: 15px;
+            }
+
+            .vert-line {
+                border-image-source: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20200%22%3E%3Cpath%20d%3D%22M50%200L55%20200L45%20200L50%200Z%22%2F%3E%3C%2Fsvg%3E');
+                border-image-slice: 15% 0% 1% 100%;
+            }
+
+            @media (max-width: 960px) {
+                #content {
+                    width: 90%;
+                }
+
+                .section-title {
+                    margin-left: inherit;
+                }
+
+                #education ul > li,
+                #experience ul > li {
+                    grid-template-columns: 1fr;
+                }
+
+                #projects li .title {
+                    grid-template-columns: auto;
+                }
+
+                #projects li p {
+                    margin-left: 1.3em;
+                }
+            }
+
+            @media (min-width: 1280px) {
+                #content {
+                    width: 60%;
+                }
+            }
+
+            @media (min-width: 1920px) {
+                #content {
+                    width: 40%;
+                }
+            }
+
+            @media print {
+                canvas,
+                #select-lang {
+                    display: none;
+                }
+
+                body {
+                    color: black !important;
+                    background: white;
+                }
+
+                #content {
+                    background: white;
+                }
+
+                #my-pic img {
+                    opacity: 0.8;
+                    transform: none !important;
+                }
+
+                .section-title {
+                    break-after: avoid-page;
+                }
+
+                ul.side-border,
+                ul.side-border-children {
+                    break-before: avoid-page;
+                }
+
+                p,
+                .side-border > li,
+                .side-border-children > li {
+                    break-inside: avoid-page;
+                }
+            }
+        </style>
+        <script type="text/javascript">
+            console.log('Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com\nLicense - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)');
+
+            window.addEventListener("load", () => {
+                const langSel = document.getElementById('select-lang');
+                const progLang = document.getElementsByClassName('prog-lang')[0];
+                const myPic = document.getElementById('my-pic').firstElementChild;
+                const canvas = document.getElementById('bkgr');
+                const ctx = canvas.getContext ? canvas.getContext('2d') : null;
+                let dpr = window.devicePixelRatio * 0.25;
+                let needReqAnim = true;
+                let offset = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset || 0;
+                offset = offset * dpr;
+                let prevOffset = offset;
+                let prevTs = 0;
+                let particles = [];
+                let isAnyDead = false;
+                let kill = null;
+                let hasTriggered = false;
+
+                document.documentElement.style.setProperty('--hue', "hsl("+(offset*0.30+250)+"deg 100% 25%)");
+                myPic.style.transform = "perspective(500px) rotateX("+(Math.min(offset, 400 * dpr)*0.1-5)+"deg) translateY("+(Math.min(offset, 400 * dpr)*0.1-12)+"px)";
+
+                window.addEventListener("beforeprint", () => { progLang.classList.remove('idle'); });
+                window.addEventListener("afterprint", () => { hasTriggered ? null : progLang.classList.add('idle') });
+
+                const observer = new IntersectionObserver((entries, observer)=>{
+                    if ( entries[0].isIntersecting ) {
+                        entries[0].target.classList.remove('idle');
+                        hasTriggered = true;
+                    }
+                    if ( hasTriggered ) {
+                        observer.disconnect();
+                    }
+                }, {threshold: 0.2});
+
+                observer.observe(progLang);
+
+                document.addEventListener("scroll", () => {
+                    offset = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset || 0;
+                    offset = offset * dpr;
+
+                    document.documentElement.style.setProperty('--hue', "hsl("+(offset*0.30+250)+"deg 100% 25%)");
+
+                    if (offset < 400 * dpr) {
+                        myPic.style.transform = "perspective(500px) rotateX("+(offset*0.1-5)+"deg) translateY("+(offset*0.1-12)+"px)";
+                        langSel.style.visibility = 'visible';
+                        langSel.style.opacity = 1;
+                    } else {
+                        if (offset - prevOffset > 0) {
+                            langSel.style.visibility = 'hidden';
+                            langSel.style.opacity = 0;
+                        } else {
+                            langSel.style.visibility = 'visible';
+                            langSel.style.opacity = 1;
+                        }
+                    }
+
+                    if (needReqAnim && ctx) {
+                        requestAnimationFrame((ts) => {prevTs = ts});
+                        requestAnimationFrame(render);
+                        needReqAnim = false;
+                    }
+                });
+
+                document.addEventListener("visibilitychange", () => {
+                    if (document.visibilityState === 'hidden') {
+                        clearTimeout(kill);
+                        // console.groupEnd(); console.log("*** killed | kill =", kill, Date().toString());
+                        kill = null;
+                        particles.splice(0, particles.length);
+                        needReqAnim = true;
+                    } else if (kill === null && document.visibilityState === 'visible') {
+                        kill = setTimeout(rcrs, 500+2000*Math.random());
+                        // console.log("*** restarted | kill =", kill, Date().toString()); console.groupCollapsed('Add');
+                    }
+                });
+
+                const removeParticles = () => {
+                    if ( isAnyDead ) {
+                        particles = particles.filter( (particle) => particle.isAlive );
+                        isAnyDead = false;
+                    }
+                };
+
+                const inBoundsCheck = (pos) => {
+                    const yPosOnCanvas = pos.y - offset;
+                    if ( pos.x < 0 ||
+                         pos.x > ctx.canvas.width ||
+                         yPosOnCanvas < 0 ||
+                         yPosOnCanvas > ctx.canvas.height ) {
+                        isAnyDead = true;
+                        return false;
+                    }
+                    return true;
+                };
+
+                const addCapsules = () => {
+                    if (offset !== prevOffset) {
+                        const span = Math.abs(offset - prevOffset)/(4*dpr);
+                        const scrollDir = (offset - prevOffset) > 0 ? -1 : 1;
+                        const start = scrollDir > 0 ? 0 : ctx.canvas.height;
+                        const col = "hsl("+(offset*0.30+130)+"deg 80% 80%)";
+                        for (let yPos = 0; yPos < span; yPos += 10*Math.random()+2) {
+                            particles.push({
+                                speed: (5 * dpr * Math.random() + 1) * (Math.sign(Math.random() - 0.5) || 1),
+                                size: {
+                                    body: 10 * dpr * Math.random() + 1,
+                                    stroke: Math.floor(10 * dpr * Math.random() + 1)
+                                },
+                                pos: {
+                                    x: 0.5 * ctx.canvas.width,
+                                    y: (yPos * scrollDir) + offset + start
+                                },
+                                color: col,
+                                isAlive: true
+                            });
+                        }
+                        prevOffset = offset;
+                    }
+                };
+
+                const addDrops = (num) => {
+                    if (num) {
+                        const dir = Math.sign(Math.random()-0.5) || 1;
+                        const start = dir > 0 ? 0 : ctx.canvas.height;
+                        for (let i = 0; i < num; i++) {
+                            particles.push({
+                                speed: (5 * dpr * Math.random() + 1) * dir,
+                                size: {
+                                    body: 10 * dpr * Math.random() + 1,
+                                    stroke: Math.floor(10 * dpr * Math.random() + 1)
+                                },
+                                pos: {
+                                    x: Math.random() * ctx.canvas.width,
+                                    y: offset + start
+                                },
+                                color: "hsl("+((offset+Math.random()*ctx.canvas.height)*0.30+130)+"deg 80% 80%)",
+                                isAlive: true
+                            });
+                        }
+
+                    } else if (offset !== prevOffset) {
+                        const span = Math.abs(offset - prevOffset)/(2*dpr);
+                        const scrollDir = (offset - prevOffset) > 0 ? -1 : 1;
+                        const start = scrollDir > 0 ? 0 : ctx.canvas.height;
+                        const col = "hsl("+(offset*0.30+130)+"deg 80% 80%)";
+                        const sparsity = 7000/span;
+                        for (let xPos = sparsity*Math.random(); xPos < ctx.canvas.width; xPos += sparsity*Math.random()+sparsity) {
+                            particles.push({
+                                speed: (5 * dpr * Math.random() + 1) * scrollDir,
+                                size: {
+                                    body: 10 * dpr * Math.random() + 1,
+                                    stroke: Math.floor(10 * dpr * Math.random() + 1)
+                                },
+                                pos: {
+                                    x: xPos,
+                                    y: Math.random() * span * scrollDir + offset + start
+                                },
+                                color: col,
+                                isAlive: true
+                            });
+                        }
+                        prevOffset = offset;
+                    }
+                };
+
+                const moveCapsules = (ts) => {
+                    const deltaTs = (ts - prevTs);
+                    prevTs = ts;
+                    particles.forEach( (particle) => {
+                        particle.pos.x += particle.speed*deltaTs*0.08;
+                        particle.isAlive = inBoundsCheck(particle.pos);
+                    });
+                }
+
+                const moveDrops = (ts) => {
+                    const deltaTs = (ts - prevTs);
+                    prevTs = ts;
+                    particles.forEach( (particle) => {
+                        particle.pos.y += particle.speed*deltaTs*0.08;
+                        particle.isAlive = inBoundsCheck(particle.pos);
+                    });
+                };
+
+                const updateCapsules = (ts) => {
+                    removeParticles();
+                    addCapsules();
+                    moveCapsules(ts);
+                };
+
+                const updateDrops = (ts) => {
+                    removeParticles();
+                    addDrops();
+                    moveDrops(ts);
+                };
+
+                const drawCapsules = () => {
+                    ctx.lineCap = 'round';
+                    ctx.globalCompositeOperation = 'overlay';
+                    particles.forEach( (particle) => {
+                        const yPosOnCanvas = Math.floor(particle.pos.y - offset) + particle.size.stroke*0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(Math.floor(particle.pos.x), yPosOnCanvas);
+                        ctx.lineTo(Math.floor(particle.pos.x + particle.size.body*particle.speed), yPosOnCanvas);
+                        ctx.strokeStyle = particle.color;
+                        ctx.lineWidth = particle.size.stroke;
+                        ctx.stroke();
+                    });
+                };
+
+                const drawDrops = () => {
+                    ctx.lineCap = 'round';
+                    ctx.globalCompositeOperation = 'overlay';
+                    particles.forEach( (particle) => {
+                        const xPosOnCanvas = Math.floor(particle.pos.x) + particle.size.stroke*0.5;
+                        const yPosOnCanvas = Math.round(particle.pos.y - offset);
+                        ctx.beginPath();
+                        ctx.moveTo(xPosOnCanvas, yPosOnCanvas);
+                        ctx.lineTo(xPosOnCanvas, yPosOnCanvas + Math.floor(particle.size.body*particle.speed));
+                        ctx.strokeStyle = particle.color;
+                        ctx.lineWidth = particle.size.stroke;
+                        ctx.stroke();
+                    });
+                };
+
+                const run = (ts) => {
+                    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+                    updateDrops(ts);
+                    drawDrops();
+                };
+
+                const adjustCanvasSize = () => {
+                    dpr = window.devicePixelRatio * 0.25;
+                    const width = ctx.canvas.clientWidth * dpr;
+                    const height = ctx.canvas.clientHeight * dpr;
+                    if ( ctx.canvas.width != width || ctx.canvas.height != height ) {
+                        ctx.canvas.width = width;
+                        ctx.canvas.height = height;
+                    }
+                };
+
+                const render = (ts) => {
+                    adjustCanvasSize();
+                    run(ts);
+                    if (particles.length > 0) {
+                        requestAnimationFrame(render);
+                    } else {
+                        needReqAnim = true;
+                    }
+                };
+
+                const rcrs = () => {
+                    addDrops(Math.floor(1+Math.random()*3));
+                    if (needReqAnim && ctx) {
+                        requestAnimationFrame((ts) => {prevTs = ts});
+                        requestAnimationFrame(render);
+                        needReqAnim = false;
+                    }
+                    kill = setTimeout(rcrs, 500+2000*Math.random());
+                    // console.log("added | kill = ", kill, Date().toString());
+                };
+
+                if (document.visibilityState === 'visible') {
+                    kill = setTimeout(rcrs, 500+2000*Math.random());
+                    // console.log("*** started | kill =", kill, Date().toString()); console.groupCollapsed('Add');
+                }
+            });
+        </script>
+    </head>
+    <body>
+
+        <canvas id="bkgr"></canvas>
+
+        <a href="/it/resume">
+            <ul id="select-lang">
+                <li current>EN</li>
+                <li>IT</li>
+            </ul>
+        </a>
+
+        <div id="content">
+            <div id="header">
+                <div class="name">
+                    <h1>Daniele Mancini</h1>
+                    <h3>Creative Technologist</h3>
+                </div>
+                <div class="info">
+                    <dl>
+                        <dt>
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone" class="svg-inline--fa fa-phone fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg>
+                        </dt><dd>+39 333 8331833</dd>
+                        <dt>
+                            <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="envelope" class="svg-inline--fa fa-envelope fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg>
+                        </dt><dd>daniele.mancini96[at]gmail[dot]com</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div id="ps" class="side-border square-end">
+                <div id="my-pic">
+                    <img src="/assets/images/myself.jpg">
+                </div>
+                <p>I have a passion for devising creative projects, tools or installations, especially when they combine the use of digital and analogue media together.<br>During last four years I have applied myself to creative coding, physical computing oriented to audio-visual realm, and front-end web developing.<br>Besides, supported by a rather eclectic background, in my projects I have often taken the chance to also make use of other interests and skills of mine, such as mechanics, graphic design, or even upcycling scrap.</p>
+            </div>
+
+            <div id="experience">
+                <div class="section-title">
+                    <h4>Relevant Work Experience</h4>
+                </div>
+                <ul class="side-border-children triangle-end">
+                    <li>
+                        <div class="period">
+                            <h4>Jan&nbsp;2020 - Present</h4>
+                        </div>
+                        <div class="work">
+                            <div class="heading">
+                                <h3>Front-end Web Developer</h3>
+                                <h4>Freelance [Milan, IT]</h4>
+                            </div>
+                            <ul class="side-border vert-line">
+                                <li>Developed websites.</li>
+                                <li>Wrote code.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="period">
+                            <h4>Sep&nbsp;2017 - Present</h4>
+                        </div>
+                        <div class="work">
+                            <div class="heading">
+                                <h3>Computational Artist</h3>
+                                <h4>Freelance [London, UK] / [Milan, IT]</h4>
+                            </div>
+                            <ul class="side-border vert-line">
+                                <li>Developed software and hardware for several live performances and installations, working both individually and in collaboration with other artists.</li>
+                                <li>Successfully coordinated small teams to the achievement of intended result by the deadline.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="period">
+                            <h4>Jan&nbsp;2018 - Jul&nbsp;2018</h4>
+                        </div>
+                        <div class="work">
+                            <div class="heading">
+                                <h3>Teaching Assistant</h3>
+                                <h4>Goldsmiths [University of London, UK]</h4>
+                            </div>
+                            <ul class="side-border vert-line">
+                                <li>Provided lab support to students, helping them through the difficulties of learning to program with a variety of coding languages.</li>
+                                <li>Was responsible for assessing student’s weekly exercises and exam papers.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="period">
+                            <h4>Oct&nbsp;2010 - Feb&nbsp;2013</h4>
+                        </div>
+                        <div class="work">
+                            <div class="heading">
+                                <h3>Video Editor & Motion Graphics Designer</h3>
+                                <h4>Marketing communications [Teddy group, Rimini, IT]</h4>
+                            </div>
+                            <ul class="side-border vert-line">
+                                <li>Was responsible for production of video content intended for web and in-store projections.</li>
+                                <li>Assisted in the creation of graphic content for e-commerce and in-store promotions, together with the laying out and scheduling of newsletters.</li>
+                                <li>Liaised between my team and IT team for the deployment of digital strategies.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="education">
+                <div class="section-title">
+                    <h4>Education & Courses</h4>
+                </div>
+                <ul class="side-border-children triangle-end">
+                    <li>
+                        <div class="period">
+                            <h4>2014 - 2017</h4>
+                        </div>
+                        <div class="course">
+                            <div class="heading">
+                                <h3>BSc (Hons) Creative Computing [1st]</h3>
+                                <h4>Goldsmiths, University of London, UK</h4>
+                            </div>
+                            <p class="side-border vert-line">Modules include: <b>Advanced audio-visual processing</b> and <b>Physical computing</b>.<br>
+                            I achieved technical and organisational competence through both the accomplishment of weekly assignments, and parallel development of longer term projects, from design to implementation.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="period">
+                            <h4>2007 - 2010</h4>
+                        </div>
+                        <div class="course">
+                            <div class="heading">
+                                <h3>Mechanical Engineering</h3>
+                                <h4>Unibo, University of Bologna, Italy</h4>
+                            </div>
+                            <p class="side-border vert-line">During the course I obtained mathematical and structural knowledge that now allows me to design functional and reliable physical projects.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="projects">
+                <div class="section-title">
+                    <h4>Projects & Collaborations</h4>
+                </div>
+                <ul class="side-border square-end">
+                    <li>
+                        <div class="title">
+                            <h3>2019</h3>
+                            <h3>Forever Do Game, w/ Jill Townsley [JRC, Ispra]</h3>
+                        </div>
+                        <div class="description">
+                            <div class="about">
+                                <h6>ABOUT</h6>
+                                <p>Installation where people could interact with a set of 2000 RFID tagged boxes, moving them according to rules created on top of Petri Nets principles.</p>
+                            </div>
+                            <div class="role">
+                                <h6>ROLE</h6>
+                                <p>Designed and developed the system to track all the individual elements (boxes) and to visually represent their movement paths with lines which faded with time.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">
+                            <h3>2019</h3>
+                            <h3>Nidra, w/ Otolab [Milan]</h3>
+                        </div>
+                        <div class="description">
+                            <div class="about">
+                                <h6>ABOUT</h6>
+                                <p>Audiovisual live performance that intends to lead the audience through various states of consciousness by means of an accurate mix of binaural beats and spectral modulation. As a representation of the multiple elements that compose the sound, several sources of concentric circles expand, weave together and give rise to elaborate textures.</p>
+                            </div>
+                            <div class="role">
+                                <h6>ROLE</h6>
+                                <p>Developed the code that generates the audio and the visuals.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">
+                            <h3>2018</h3>
+                            <h3>Audrey, w/ Amy Cartwright [V&A Museum, London]</h3>
+                        </div>
+                        <div class="description">
+                            <div class="about">
+                                <h6>ABOUT</h6>
+                                <p>Live performance where a dancer and a robot interact, exploring the possibilities of involving non-human performers in a dance space.</p>
+                            </div>
+                            <div class="role">
+                                <h6>ROLE</h6>
+                                <p>Designed and developed the system to control the movement and balancing of the robot.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">
+                            <h3>2017</h3>
+                            <h3>Tremors [Goldsmiths University, London]</h3>
+                        </div>
+                        <div class="description">
+                            <div class="about">
+                                <h6>ABOUT</h6>
+                                <p>Electronic musical instrument involving several lasers that read the perturbations on the surface of a liquid and translate them into an immersive 7-channels spatialised sound.</p>
+                            </div>
+                            <div class="role">
+                                <h6>ROLE</h6>
+                                <p>Designed and developed the code, the electronics and the physical structure.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">
+                            <h3>2013</h3>
+                            <h3>Punto Zero, w/ Otolab [Milan]</h3>
+                        </div>
+                        <div class="description">
+                            <div class="about">
+                                <h6>ABOUT</h6>
+                                <p>Live performance in which lights and spatialised sound trace a circular sign around the audience, and give rise to an immersive experience where perception of space is distorted and reshaped.</p>
+                            </div>
+                            <div class="role">
+                                <h6>ROLE</h6>
+                                <p>Contributed to the hardware development, especially doing research on strobing LED light sources.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">
+                            <h3>2013</h3>
+                            <h3>Mnemorphosis, w/ Otolab [Milan]</h3>
+                        </div>
+                        <div class="description">
+                            <div class="about">
+                                <h6>ABOUT</h6>
+                                <p>Installation where shapes of light affect a layer of phosphorescent powder, which is then scattered and randomly rearranged by the low frequencies of a subwoofer, in an attempt to visually represent decay, dispersion and metamorphosis of memory.</p>
+                            </div>
+                            <div class="role">
+                                <h6>ROLE</h6>
+                                <p>Realised a video-projector’s shutter that could be controlled with an audio signal.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">
+                            <h3>2012</h3>
+                            <h3>Videoclip of “El Torpe - In the evening”, w/ Otolab [Milan]</h3>
+                        </div>
+                        <div class="description">
+                            <div class="about">
+                                <h6>ABOUT</h6>
+                                <p>Video realized using close-up shots of the performer’s face lit up by audio reactive lights. The footages were subsequently projected through diffracting materials of different nature to obtain abstracts images owing to analog distortions.</p>
+                            </div>
+                            <div class="role">
+                                <h6>ROLE</h6>
+                                <p>Was the camera operator and assisted the preparation of the locations for the shootings.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="skills">
+                <div class="section-title">
+                    <h4>Technical Skills</h4>
+                </div>
+                <div class="skills-wrapper"> <!-- canvas start -->
+                    <div class="side-border square-end">
+                        <div class="title">
+                            <h5>Programming Languages</h5>
+                        </div>
+                        <dl class="prog-lang idle">
+                            <dt>
+                                <h5>C++</h5>
+                            </dt>
+                            <dd style="--item: 0;">
+                                <div class="timeline"></div>
+                                <div class="event" style="margin-left: 30%;width: 70%;--level: 90%;"></div>
+                            </dd>
+                            <dt>
+                                <h5>JavaScript</h5>
+                            </dt>
+                            <dd style="--item: 1;">
+                                <div class="timeline"></div>
+                                <div class="event" style="margin-left: 20%;width: 80%;--level: 80%;"></div>
+                            </dd>
+                            <dt>
+                                <h5>Java</h5>
+                            </dt>
+                            <dd style="--item: 2;">
+                                <div class="timeline"></div>
+                                <div class="event" style="margin-left: 10%;width: 50%;--level: 70%;"></div>
+                            </dd>
+                            <dt>
+                                <h5>C#</h5>
+                            </dt>
+                            <dd style="--item: 3;">
+                                <div class="timeline"></div>
+                                <div class="event" style="margin-left: 40%;width: 20%;--level: 40%;"></div>
+                            </dd>
+                            <dt>
+                                <h5>HTML5</h5>
+                            </dt>
+                            <dd style="--item: 4;">
+                                <div class="timeline"></div>
+                                <div class="event" style="margin-left: 20%;width: 80%;--level: 80%;"></div>
+                            </dd>
+                            <dt>
+                                <h5>CSS3</h5>
+                            </dt>
+                            <dd style="--item: 5;">
+                                <div class="timeline"></div>
+                                <div class="event" style="margin-left: 20%;width: 80%;--level: 80%;"></div>
+                            </dd>
+                            <dt>
+                                <h5>PHP</h5>
+                            </dt>
+                            <dd style="--item: 6;">
+                                <div class="timeline"></div>
+                                <div class="event" style="margin-left: 20%;width: 80%;--level: 50%;"></div>
+                            </dd>
+                            <dt>
+                                <h5>Python</h5>
+                            </dt>
+                            <dd style="--item: 7;">
+                                <div class="timeline"></div>
+                                <div class="event" style="margin-left: 40%;width: 30%;--level: 50%;"></div>
+                            </dd>
+                            <dt>
+                                <h5>GLSL</h5>
+                            </dt>
+                            <dd style="--item: 8;">
+                                <div class="timeline"></div>
+                                <div class="event" style="margin-left: 50%;width: 50%;--level: 60%;"></div>
+                            </dd>
+                            <dt>
+                                <h5>C</h5>
+                            </dt>
+                            <dd style="--item: 9;">
+                                <div class="timeline"></div>
+                                <div class="event" style="margin-left: 0%;width: 10%;--level: 70%;"></div>
+                            </dd>
+                            <dt class="caption">
+                                <div class="shift graph-name">
+                                    <h5>USE</h5>
+                                    <h5>XP</h5>
+                                </div>
+                            </dt>
+                            <dd class="caption" style="align-self: center;">
+                                <div class="shift">
+                                    <div class="values" style="justify-content: space-between;">
+                                        <h5>← past</h5>
+                                        <h5>2015</h5>
+                                        <h5>2017</h5>
+                                        <h5>2019</h5>
+                                        <h5>present •</h5>
+                                    </div>
+                                    <div class="values" style="justify-content: space-around;">
+                                        <h5>low</h5>
+                                        <h5>medium</h5>
+                                        <h5>high</h5>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div>
+                        <div class="side-border square-end">
+                            <div class="title">
+                                <h5>Software Development</h5>
+                            </div>
+                            <p>OpenFrameworks, p5.js, Processing, Unity3d, Arduino.</p>
+                        </div>
+                        <div class="side-border square-end">
+                            <div class="title">
+                                <h5>Software</h5>
+                            </div>
+                            <dl class="software">
+                                <dt>Adobe Suite:</dt>
+                                <dd>Photoshop, Illustrator, After Effects, Premiere Pro.</dd>
+                                <dt>3D:</dt>
+                                <dd>Blender.</dd>
+                                <dt>CAD:</dt>
+                                <dd>Eagle Fusion 360.</dd>
+                                <dt>DAW:</dt>
+                                <dd>Ableton Live, Audacity.</dd>
+                            </dl>
+                        </div>
+                        <div class="side-border square-end">
+                            <div class="title">
+                                <h5>Hardware</h5>
+                            </div>
+                            <p>3D printing, laser cutting, PCB CNC milling, soldering electronics, several woodworking and metalworking tools.</p>
+                        </div>
+                    </div>
+                </div> <!-- canvas end -->
+            </div>
+        </div>
+    </body>
+</html>
