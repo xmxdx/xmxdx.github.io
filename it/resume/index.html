@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" ontouchstart="">
+<html lang="it">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,6 +60,7 @@
 
             #select-lang {
                 position: fixed;
+                z-index: 10;
                 display: flex;
                 list-style: none;
                 top: 1.3em;
@@ -104,10 +105,12 @@
             .section-title,
             #header .name h1 {
                 margin: 2px 0;
-                border-style: solid;
+                padding: 5px 10px;
+                border-bottom: 1px solid #dadada;
+                /*border-style: solid;
                 border-width: 0 0 2px 0;
                 border-image-source: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20100%22%3E%3Cpath%20d%3D%22M0%2050L200%2055L200%2045L0%2050Z%22%2F%3E%3C%2Fsvg%3E');
-                border-image-slice: 0% 1% 100% 15%;
+                border-image-slice: 0% 1% 100% 15%;*/
             }
 
             .section-title {
@@ -146,13 +149,17 @@
                 width: 106.18%;
             }
 
+            #header .name h3 {
+                margin-left: 10px;
+            }
+
             .name {
                 min-width: max-content;
                 margin-right: 50px;
             }
 
             .info {
-                margin-top: 20px;
+                margin-top: 30px;
             }
 
             .info dl {
@@ -166,8 +173,8 @@
             .info dt {
                 font-variant-caps: all-small-caps;
                 text-align: right;
-                width: 1.3em;
-                height: 1.3em;
+                /*width: 1.3em;
+                height: 1.3em;*/
             }
 
             .info dd {
@@ -196,12 +203,15 @@
             #my-pic {
                 width: 150px;
                 height: 150px;
+                padding: 0 1em;
+                margin: 0 -1em;
                 overflow: hidden;
             }
 
             #my-pic img {
                 width: 100%;
                 height: auto;
+                transform-origin: bottom;
             }
 
             p.side-border {
@@ -225,6 +235,7 @@
             .work h4,
             .course h4 {
                 font-weight: 300;
+                margin-left: 0.3em !important;
             }
 
             .period {
@@ -241,6 +252,11 @@
                 margin: 0;
             }
 
+            #projects li .title > h3:first-child {
+                font-size: 1em;
+                line-height: 1.4em;
+            }
+
             #projects li .title {
                 display: grid;
                 grid-template-columns: min-content auto;
@@ -251,7 +267,7 @@
                 display: flex;
                 flex-flow: row wrap;
                 justify-content: space-between;
-                margin-left: 5em;
+                margin-left: 3em;
             }
 
             #projects .description p {
@@ -283,6 +299,7 @@
             #skills .prog-lang h5 {
                 margin: 0;
                 text-align: right;
+                font-weight: 400;
             }
 
             #skills .prog-lang dd {
@@ -304,15 +321,15 @@
                 height: 100%;
                 background: #555;
                 border-radius: 7px;
-                transition: 800ms cubic-bezier(0.22, 0.61, 0.36, 1);
+                transition: 500ms cubic-bezier(0.47, 0, 0.75, 0.72);
                 transition-property: margin-left, width;
                 transition-delay: calc(var(--item) * 30ms);
             }
 
-            #skills .prog-lang:hover .event {
-                margin-left: 0 !important;
-                width: var(--level) !important;
-                transition-duration: 300ms;
+            #skills .prog-lang.hover .event {
+                margin-left: var(--start) !important;
+                width: var(--span) !important;
+                transition: 300ms cubic-bezier(0.22, 0.61, 0.36, 1);
                 transition-delay: 0ms;
             }
 
@@ -321,7 +338,7 @@
                 transition: transform 300ms;
             }
 
-            #skills .prog-lang:hover .shift {
+            #skills .prog-lang.hover .shift {
                 transform: translateY(-1em);
             }
 
@@ -351,8 +368,8 @@
                 width: 0 !important;
             }
 
-            #skills .title > h5 {
-                margin: 0;
+            #skills .section-subtitle > h5 {
+                margin: 0 0 0.8em;
             }
 
             #skills .side-border {
@@ -391,8 +408,13 @@
                 padding-left: 0;
             }
 
+            .side-border-children .heading h4 {
+                margin-top: 0;
+            }
+
             .side-border-children div > *,
-            .title ~ * {
+            .title ~ *,
+            .section-subtitle ~ * {
                 margin: 0.5em 0 0;
             }
 
@@ -439,6 +461,19 @@
                 border-image-slice: 15% 0% 1% 100%;
             }
 
+            @media (hover: hover) and (pointer: fine) {
+                #skills .prog-lang:hover .event {
+                    margin-left: var(--start) !important;
+                    width: var(--span) !important;
+                    transition: 300ms cubic-bezier(0.22, 0.61, 0.36, 1);
+                    transition-delay: 0ms;
+                }
+
+                #skills .prog-lang:hover .shift {
+                    transform: translateY(-1em);
+                }
+            }
+
             @media (max-width: 960px) {
                 #content {
                     width: 90%;
@@ -453,8 +488,20 @@
                     grid-template-columns: 1fr;
                 }
 
+                .period h4 {
+                    margin-left: 0.7em;
+                }
+
                 #projects li .title {
                     grid-template-columns: auto;
+                }
+
+                #projects li .title > h3:first-child {
+                    margin-left: 0.3em;
+                }
+
+                #projects .description {
+                    margin-left: 0.5em;
                 }
 
                 #projects li p {
@@ -529,12 +576,26 @@
                 let isAnyDead = false;
                 let kill = null;
                 let hasTriggered = false;
+                const hueScale = 120 / (document.documentElement.scrollHeight * dpr);
 
-                document.documentElement.style.setProperty('--hue', "hsl("+(offset*0.30+250)+"deg 100% 25%)");
-                myPic.style.transform = "perspective(500px) rotateX("+(Math.min(offset, 400 * dpr)*0.1-5)+"deg) translateY("+(Math.min(offset, 400 * dpr)*0.1-12)+"px)";
+                {
+                    const hueVal = 258 - offset * hueScale;
+                    const lumVal = 39 - offset * 0.008;
+                    document.documentElement.style.setProperty('--hue', "hsl(" + hueVal + "deg 88% " + lumVal + "%)");
+                    const xRot = Math.min(offset, 400 * dpr) * 0.1;
+                    const yTrans = Math.min(offset, 400 * dpr) * 0.1 - 12;
+                    myPic.style.transform = "perspective(500px) rotateX(" + xRot + "deg) translateY(" + yTrans + "px)";
+                }
 
                 window.addEventListener("beforeprint", () => { progLang.classList.remove('idle'); });
                 window.addEventListener("afterprint", () => { hasTriggered ? null : progLang.classList.add('idle') });
+                window.addEventListener("touchstart", (e) => {
+                    if ( e.target === progLang ) {
+                        progLang.classList.toggle('hover');
+                    } else {
+                        progLang.classList.remove('hover');
+                    }
+                });
 
                 const observer = new IntersectionObserver((entries, observer)=>{
                     if ( entries[0].isIntersecting ) {
@@ -552,10 +613,10 @@
                     offset = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset || 0;
                     offset = offset * dpr;
 
-                    document.documentElement.style.setProperty('--hue', "hsl("+(offset*0.30+250)+"deg 100% 25%)");
+                    document.documentElement.style.setProperty('--hue', "hsl("+(258-offset*hueScale)+"deg 88% "+(39-offset*0.008)+"%)");
 
                     if (offset < 400 * dpr) {
-                        myPic.style.transform = "perspective(500px) rotateX("+(offset*0.1-5)+"deg) translateY("+(offset*0.1-12)+"px)";
+                        myPic.style.transform = "perspective(500px) rotateX("+(offset*0.05)+"deg) translateY("+(offset*0.1-12)+"px)";
                         langSel.style.visibility = 'visible';
                         langSel.style.opacity = 1;
                     } else {
@@ -612,7 +673,7 @@
                         const span = Math.abs(offset - prevOffset)/(4*dpr);
                         const scrollDir = (offset - prevOffset) > 0 ? -1 : 1;
                         const start = scrollDir > 0 ? 0 : ctx.canvas.height;
-                        const col = "hsl("+(offset*0.30+130)+"deg 80% 80%)";
+                        const col = "hsl("+(138-offset*hueScale*2)+"deg 80% 80%)";
                         for (let yPos = 0; yPos < span; yPos += 10*Math.random()+2) {
                             particles.push({
                                 speed: (5 * dpr * Math.random() + 1) * (Math.sign(Math.random() - 0.5) || 1),
@@ -647,7 +708,7 @@
                                     x: Math.random() * ctx.canvas.width,
                                     y: offset + start
                                 },
-                                color: "hsl("+((offset+Math.random()*ctx.canvas.height)*0.30+130)+"deg 80% 80%)",
+                                color: "hsl("+(258-(offset+Math.random()*ctx.canvas.height)*hueScale)+"deg "+(80-offset*0.02)+"% 80%)",
                                 isAlive: true
                             });
                         }
@@ -656,8 +717,8 @@
                         const span = Math.abs(offset - prevOffset)/(2*dpr);
                         const scrollDir = (offset - prevOffset) > 0 ? -1 : 1;
                         const start = scrollDir > 0 ? 0 : ctx.canvas.height;
-                        const col = "hsl("+(offset*0.30+130)+"deg 80% 80%)";
-                        const sparsity = 7000/span;
+                        const col = "hsl("+(258-offset*hueScale)+"deg "+(80-offset*0.02)+"% 80%)";
+                        const sparsity = 17000/span;
                         for (let xPos = sparsity*Math.random(); xPos < ctx.canvas.width; xPos += sparsity*Math.random()+sparsity) {
                             particles.push({
                                 speed: (5 * dpr * Math.random() + 1) * scrollDir,
@@ -784,7 +845,7 @@
 
         <canvas id="bkgr"></canvas>
 
-        <a href="/en/resume">
+        <a href="/en/resume" hreflang="en">
             <ul id="select-lang">
                 <li>EN</li>
                 <li current>IT</li>
@@ -800,10 +861,10 @@
                 <div class="info">
                     <dl>
                         <dt>
-                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone" class="svg-inline--fa fa-phone fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg>
+                            <!-- <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone" class="svg-inline--fa fa-phone fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" preserveAspectRatio="xMaxYMax meet"><path fill="currentColor" d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg> -->
                         </dt><dd>+39 333 8331833</dd>
                         <dt>
-                            <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="envelope" class="svg-inline--fa fa-envelope fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg>
+                            <!-- <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="envelope" class="svg-inline--fa fa-envelope fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" preserveAspectRatio="xMaxYMax meet"><path fill="currentColor" d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg> -->
                         </dt><dd>daniele.mancini96[at]gmail[dot]com</dd>
                     </dl>
                 </div>
@@ -831,8 +892,8 @@
                                 <h4>Freelance [Milan, IT]</h4>
                             </div>
                             <ul class="side-border vert-line">
-                                <li>Ho sviluppato siti.</li>
-                                <li>Ho scritto codice.</li>
+                                <li>Ho collaborato con graphic designers per la creazione di siti responsive design, sia statici che dinamici con CMS Wordpress.</li>
+                                <li>Ho sviluppato e fatto manutenzione di siti Wordpress, svolgendo mansioni tra cui: strutturazione del sito, modifiche del tema, risoluzione di errori, aggiornamenti di CMS e plugins, migrazione hosting, etc.</li>
                             </ul>
                         </div>
                     </li>
@@ -887,7 +948,7 @@
 
             <div id="education">
                 <div class="section-title">
-                    <h4>Educazione & Corsi</h4>
+                    <h4>Educazione e Corsi</h4>
                 </div>
                 <ul class="side-border-children triangle-end">
                     <li>
@@ -899,7 +960,7 @@
                                 <h3>BSc (Hons) Creative Computing [1st]</h3>
                                 <h4>Goldsmiths, Università di Londra, Regno Unito</h4>
                             </div>
-                            <p class="side-border vert-line">Modules include: <b>Advanced audio-visual processing</b> and <b>Physical computing</b>.<br>
+                            <p class="side-border vert-line">Moduli presenti: <b>Advanced audio-visual processing</b> e <b>Physical computing</b>.<br>
                             Ho conseguito competenze tecniche e organizzative sia attraverso lo svolgimento di esercizi settimanali, che la realizzazione in parallelo di progetti più a lungo termine, dalla fase progettuale all'implementazione.</p>
                         </div>
                     </li>
@@ -920,7 +981,7 @@
 
             <div id="projects">
                 <div class="section-title">
-                    <h4>Progetti & Collaborazioni</h4>
+                    <h4>Progetti e Collaborazioni</h4>
                 </div>
                 <ul class="side-border square-end">
                     <li>
@@ -1043,117 +1104,123 @@
                     <h4>Competenze Tecniche</h4>
                 </div>
                 <div class="skills-wrapper"> <!-- canvas start -->
-                    <div class="side-border square-end">
-                        <div class="title">
-                            <h5>Linguaggi di Programmazione</h5>
+                    <div>
+                        <div class="side-border square-end">
+                            <div class="section-subtitle">
+                                <h5>Linguaggi di Programmazione</h5>
+                            </div>
+                            <dl class="prog-lang idle">
+                                <dt>
+                                    <h5>C</h5>
+                                </dt>
+                                <dd style="--item: 9;">
+                                    <div class="timeline"></div>
+                                    <div class="event" style="width: 70%; --start: 0%; --span: 10%;"></div>
+                                </dd>
+                                <dt>
+                                    <h5>C++</h5>
+                                </dt>
+                                <dd style="--item: 0;">
+                                    <div class="timeline"></div>
+                                    <div class="event" style="width: 90%; --start: 30%; --span: 70%;"></div>
+                                </dd>
+                                <dt>
+                                    <h5>C#</h5>
+                                </dt>
+                                <dd style="--item: 3;">
+                                    <div class="timeline"></div>
+                                    <div class="event" style="width: 40%; --start: 40%; --span: 20%;"></div>
+                                </dd>
+                                <dt>
+                                    <h5>CSS3</h5>
+                                </dt>
+                                <dd style="--item: 5;">
+                                    <div class="timeline"></div>
+                                    <div class="event" style="width: 80%; --start: 20%; --span: 80%;"></div>
+                                </dd>
+                                <dt>
+                                    <h5>GLSL</h5>
+                                </dt>
+                                <dd style="--item: 8;">
+                                    <div class="timeline"></div>
+                                    <div class="event" style="width: 60%; --start: 50%; --span: 50%;"></div>
+                                </dd>
+                                <dt>
+                                    <h5>HTML5</h5>
+                                </dt>
+                                <dd style="--item: 4;">
+                                    <div class="timeline"></div>
+                                    <div class="event" style="width: 80%; --start: 20%; --span: 80%;"></div>
+                                </dd>
+                                <dt>
+                                    <h5>Java</h5>
+                                </dt>
+                                <dd style="--item: 2;">
+                                    <div class="timeline"></div>
+                                    <div class="event" style="width: 70%; --start: 10%; --span: 50%;"></div>
+                                </dd>
+                                <dt>
+                                    <h5>JavaScript</h5>
+                                </dt>
+                                <dd style="--item: 1;">
+                                    <div class="timeline"></div>
+                                    <div class="event" style="width: 80%; --start: 20%; --span: 80%;"></div>
+                                </dd>
+                                <dt>
+                                    <h5>PHP</h5>
+                                </dt>
+                                <dd style="--item: 6;">
+                                    <div class="timeline"></div>
+                                    <div class="event" style="width: 50%; --start: 20%; --span: 80%;"></div>
+                                </dd>
+                                <dt>
+                                    <h5>Python</h5>
+                                </dt>
+                                <dd style="--item: 7;">
+                                    <div class="timeline"></div>
+                                    <div class="event" style="width: 50%; --start: 40%; --span: 30%;"></div>
+                                </dd>
+                                <dt class="caption">
+                                    <div class="shift graph-name">
+                                        <h5>ESPERIENZA</h5>
+                                        <h5>UTILIZZO</h5>
+                                    </div>
+                                </dt>
+                                <dd class="caption" style="align-self: center;">
+                                    <div class="shift">
+                                        <div class="values" style="justify-content: space-around;">
+                                            <h5>bassa</h5>
+                                            <h5>media</h5>
+                                            <h5>alta</h5>
+                                        </div>
+                                        <div class="values" style="justify-content: space-between;">
+                                            <h5>← passato</h5>
+                                            <h5>2015</h5>
+                                            <h5>2017</h5>
+                                            <h5>2019</h5>
+                                            <h5>presente •</h5>
+                                        </div>
+                                    </div>
+                                </dd>
+                            </dl>
                         </div>
-                        <dl class="prog-lang idle">
-                            <dt>
-                                <h5>C++</h5>
-                            </dt>
-                            <dd style="--item: 0;">
-                                <div class="timeline"></div>
-                                <div class="event" style="margin-left: 30%;width: 70%;--level: 90%;"></div>
-                            </dd>
-                            <dt>
-                                <h5>JavaScript</h5>
-                            </dt>
-                            <dd style="--item: 1;">
-                                <div class="timeline"></div>
-                                <div class="event" style="margin-left: 20%;width: 80%;--level: 80%;"></div>
-                            </dd>
-                            <dt>
-                                <h5>Java</h5>
-                            </dt>
-                            <dd style="--item: 2;">
-                                <div class="timeline"></div>
-                                <div class="event" style="margin-left: 10%;width: 50%;--level: 70%;"></div>
-                            </dd>
-                            <dt>
-                                <h5>C#</h5>
-                            </dt>
-                            <dd style="--item: 3;">
-                                <div class="timeline"></div>
-                                <div class="event" style="margin-left: 40%;width: 20%;--level: 40%;"></div>
-                            </dd>
-                            <dt>
-                                <h5>HTML5</h5>
-                            </dt>
-                            <dd style="--item: 4;">
-                                <div class="timeline"></div>
-                                <div class="event" style="margin-left: 20%;width: 80%;--level: 80%;"></div>
-                            </dd>
-                            <dt>
-                                <h5>CSS3</h5>
-                            </dt>
-                            <dd style="--item: 5;">
-                                <div class="timeline"></div>
-                                <div class="event" style="margin-left: 20%;width: 80%;--level: 80%;"></div>
-                            </dd>
-                            <dt>
-                                <h5>PHP</h5>
-                            </dt>
-                            <dd style="--item: 6;">
-                                <div class="timeline"></div>
-                                <div class="event" style="margin-left: 20%;width: 80%;--level: 50%;"></div>
-                            </dd>
-                            <dt>
-                                <h5>Python</h5>
-                            </dt>
-                            <dd style="--item: 7;">
-                                <div class="timeline"></div>
-                                <div class="event" style="margin-left: 40%;width: 30%;--level: 50%;"></div>
-                            </dd>
-                            <dt>
-                                <h5>GLSL</h5>
-                            </dt>
-                            <dd style="--item: 8;">
-                                <div class="timeline"></div>
-                                <div class="event" style="margin-left: 50%;width: 50%;--level: 60%;"></div>
-                            </dd>
-                            <dt>
-                                <h5>C</h5>
-                            </dt>
-                            <dd style="--item: 9;">
-                                <div class="timeline"></div>
-                                <div class="event" style="margin-left: 0%;width: 10%;--level: 70%;"></div>
-                            </dd>
-                            <dt class="caption">
-                                <div class="shift graph-name">
-                                    <h5>UTILIZZO</h5>
-                                    <h5>ESPERIENZA</h5>
+                            <div class="side-border square-end">
+                                <div class="section-subtitle">
+                                    <h5>Librerie e Frameworks</h5>
                                 </div>
-                            </dt>
-                            <dd class="caption" style="align-self: center;">
-                                <div class="shift">
-                                    <div class="values" style="justify-content: space-between;">
-                                        <h5>← passato</h5>
-                                        <h5>2015</h5>
-                                        <h5>2017</h5>
-                                        <h5>2019</h5>
-                                        <h5>presente •</h5>
-                                    </div>
-                                    <div class="values" style="justify-content: space-around;">
-                                        <h5>bassa</h5>
-                                        <h5>media</h5>
-                                        <h5>alta</h5>
-                                    </div>
-                                </div>
-                            </dd>
-                        </dl>
+                                <p>Wordpress, Bootstrap, jQuery, React, Node.js, Express.js, Webpack, p5.js, curtains.js, Three.js, OpenFrameworks, Processing, Unity3d, Arduino.</p>
+                            </div>
                     </div>
                     <div>
                         <div class="side-border square-end">
-                            <div class="title">
-                                <h5>Sviluppo Software</h5>
-                            </div>
-                            <p>OpenFrameworks, p5.js, Processing, Unity3d, Arduino.</p>
-                        </div>
-                        <div class="side-border square-end">
-                            <div class="title">
+                            <div class="section-subtitle">
                                 <h5>Software</h5>
                             </div>
                             <dl class="software">
+                                <dt>Prototipazione Web:</dt>
+                                <dd>Adobe XD, Figma.</dd>
+                                <dt>Controllo Versione:</dt>
+                                <dd>Git.</dd>
                                 <dt>Adobe Suite:</dt>
                                 <dd>Photoshop, Illustrator, After Effects, Premiere Pro.</dd>
                                 <dt>3D:</dt>
@@ -1165,7 +1232,7 @@
                             </dl>
                         </div>
                         <div class="side-border square-end">
-                            <div class="title">
+                            <div class="section-subtitle">
                                 <h5>Hardware</h5>
                             </div>
                             <p>Stampa 3D, taglio laser, fresatura CNC di schede elettroniche, saldatura a stagno, diversi strumenti per la lavorazione del legno e del metallo.</p>
