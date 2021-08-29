@@ -386,13 +386,12 @@
             }
 
             .skills-wrapper {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: flex-start;
+                columns: 2 350px;
             }
 
-            .skills-wrapper > * {
-                flex: 1 1 342px;
+            .skills-field {
+                padding: 1px;
+                break-inside: avoid;
             }
 
             .side-border,
@@ -1107,7 +1106,7 @@
                     <h4>Competenze Tecniche</h4>
                 </div>
                 <div class="skills-wrapper"> <!-- canvas start -->
-                    <div>
+                    <div class="skills-field">
                         <div class="side-border square-end">
                             <div class="section-subtitle">
                                 <h5>Linguaggi di Programmazione</h5>
@@ -1207,6 +1206,8 @@
                                 </dd>
                             </dl>
                         </div>
+                    </div>
+                    <div class="skills-field">
                         <div class="side-border square-end">
                             <div class="section-subtitle">
                                 <h5>Librerie e Frameworks</h5>
@@ -1214,7 +1215,7 @@
                             <p>Wordpress, Bootstrap, jQuery, React, Node.js, Express.js, Webpack, p5.js, curtains.js, Three.js, OpenFrameworks, Processing, Unity3d, Arduino.</p>
                         </div>
                     </div>
-                    <div>
+                    <div class="skills-field">
                         <div class="side-border square-end">
                             <div class="section-subtitle">
                                 <h5>Software</h5>
@@ -1234,6 +1235,8 @@
                                 <dd>Ableton Live, Audacity.</dd>
                             </dl>
                         </div>
+                    </div>
+                    <div class="skills-field">
                         <div class="side-border square-end">
                             <div class="section-subtitle">
                                 <h5>Hardware</h5>
