@@ -32,7 +32,7 @@
 
         <style>
             :root {
-                --hue: black;
+                --hue: transparent;
             }
 
             body {
@@ -386,13 +386,12 @@
             }
 
             .skills-wrapper {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: flex-start;
+                columns: 2 350px;
             }
 
-            .skills-wrapper > * {
-                flex: 1 1 342px;
+            .skills-field {
+                padding: 1px;
+                break-inside: avoid;
             }
 
             .side-border,
@@ -557,8 +556,11 @@
                 }
             }
         </style>
+        <noscript>
+            <style> :root { --hue: black; } </style>
+        </noscript>
         <script type="text/javascript">
-            console.log('Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com\nLicense - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)');
+            // console.log('Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com\nLicense - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)');
 
             window.addEventListener("load", () => {
                 const langSel = document.getElementById('select-lang');
@@ -1104,10 +1106,10 @@
                     <h4>Technical Skills</h4>
                 </div>
                 <div class="skills-wrapper">
-                    <div>
+                    <div class="skills-field">
                         <div class="side-border square-end">
                             <div class="section-subtitle">
-                                <h5>Linguaggi di Programmazione</h5>
+                                <h5>Programming Languages</h5>
                             </div>
                             <dl class="prog-lang idle">
                                 <dt>
@@ -1204,14 +1206,16 @@
                                 </dd>
                             </dl>
                         </div>
-                            <div class="side-border square-end">
-                                <div class="section-subtitle">
-                                    <h5>Libraries & Frameworks</h5>
-                                </div>
-                                <p>Wordpress, Bootstrap, jQuery, React, Node.js, Express.js, Webpack, p5.js, curtains.js, Three.js, OpenFrameworks, Processing, Unity3d, Arduino.</p>
-                            </div>
                     </div>
-                    <div>
+                    <div class="skills-field">
+                        <div class="side-border square-end">
+                            <div class="section-subtitle">
+                                <h5>Libraries & Frameworks</h5>
+                            </div>
+                            <p>Wordpress, Bootstrap, jQuery, React, Node.js, Express.js, Webpack, p5.js, curtains.js, Three.js, OpenFrameworks, Processing, Unity3d, Arduino.</p>
+                        </div>
+                    </div>
+                    <div class="skills-field">
                         <div class="side-border square-end">
                             <div class="section-subtitle">
                                 <h5>Software</h5>
@@ -1226,11 +1230,13 @@
                                 <dt>3D:</dt>
                                 <dd>Blender.</dd>
                                 <dt>CAD:</dt>
-                                <dd>Eagle Fusion 360.</dd>
+                                <dd>Eagle, Fusion 360.</dd>
                                 <dt>DAW:</dt>
                                 <dd>Ableton Live, Audacity.</dd>
                             </dl>
                         </div>
+                    </div>
+                    <div class="skills-field">
                         <div class="side-border square-end">
                             <div class="section-subtitle">
                                 <h5>Hardware</h5>
