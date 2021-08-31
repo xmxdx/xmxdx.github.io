@@ -361,7 +361,7 @@
                 overflow: hidden; 
             }
 
-            #skills .prog-lang.idle .event {
+            .js #skills .prog-lang.idle .event {
                 margin-left: 0 !important;
                 width: 0 !important;
             }
@@ -556,10 +556,11 @@
         <noscript>
             <style> :root { --hue: black; } </style>
         </noscript>
-        <script type="text/javascript">
+        <script type="application/javascript">
             // console.log('Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com\nLicense - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)');
 
             window.addEventListener("load", () => {
+                document.classList.add('js');
                 const langSel = document.getElementById('select-lang');
                 const progLang = document.getElementsByClassName('prog-lang')[0];
                 const myPic = document.getElementById('my-pic').firstElementChild;
