@@ -806,8 +806,11 @@
                     const width = ctx.canvas.clientWidth * dpr;
                     const height = ctx.canvas.clientHeight * dpr;
                     if ( ctx.canvas.width != width || ctx.canvas.height != height ) {
-                        ctx.canvas.width = width;
-                        ctx.canvas.height = height;
+                        clearTimeout(killAdjCanvas);
+                        killAdjCanvas = setTimeout(() => {
+                            ctx.canvas.width = width;
+                            ctx.canvas.height = height;
+                        }, 100);
                     }
                 };
 
