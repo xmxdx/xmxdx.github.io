@@ -601,8 +601,6 @@
                     if ( entries[0].isIntersecting ) {
                         entries[0].target.classList.remove('idle');
                         hasTriggered = true;
-                    }
-                    if ( hasTriggered ) {
                         observer.disconnect();
                     }
                 }, {threshold: 0.2});
