@@ -575,7 +575,6 @@
                 let particles = [];
                 let isAnyDead = false;
                 let kill = null;
-                let killAdjCanvas = null;
                 let hasTriggered = false;
                 const hueScale = 120 / (document.documentElement.scrollHeight * dpr);
 
@@ -804,14 +803,11 @@
 
                 const adjustCanvasSize = () => {
                     dpr = window.devicePixelRatio * 0.25;
-                    const width = ctx.canvas.clientWidth * dpr;
-                    const height = ctx.canvas.clientHeight * dpr;
+                    const width = ~~(ctx.canvas.clientWidth * dpr);
+                    const height = ~~(ctx.canvas.clientHeight * dpr);
                     if ( ctx.canvas.width != width || ctx.canvas.height != height ) {
-                        clearTimeout(killAdjCanvas);
-                        killAdjCanvas = setTimeout(() => {
-                            ctx.canvas.width = width;
-                            ctx.canvas.height = height;
-                        }, 500);
+                        ctx.canvas.width = width;
+                        ctx.canvas.height = height;
                     }
                 };
 
