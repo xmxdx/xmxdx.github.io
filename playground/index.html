@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>xmxdx | Playground</title>
+  <meta name="description" content="A basic WebGL shader test w/ curtains.js">
+
+  <!-- generics -->
+  <link rel="icon" href="/assets/favicon/favicon32.png" sizes="32x32">
+  <link rel="icon" href="/assets/favicon/favicon57.png" sizes="57x57">
+  <link rel="icon" href="/assets/favicon/favicon76.png" sizes="76x76">
+  <link rel="icon" href="/assets/favicon/favicon96.png" sizes="96x96">
+  <link rel="icon" href="/assets/favicon/favicon128.png" sizes="128x128">
+  <link rel="icon" href="/assets/favicon/favicon192.png" sizes="192x192">
+  <link rel="icon" href="/assets/favicon/favicon228.png" sizes="228x228">
+
+  <!-- Android -->
+  <link rel="shortcut icon" sizes="196x196" href="/assets/favicon/favicon196.png">
+
+  <!-- iOS -->
+  <link rel="apple-touch-icon" href="/assets/favicon/favicon120.png" sizes="120x120">
+  <link rel="apple-touch-icon" href="/assets/favicon/favicon152.png" sizes="152x152">
+  <link rel="apple-touch-icon" href="/assets/favicon/favicon180.png" sizes="180x180">
+
+  <!-- Windows 8 IE 10 -->
+  <meta name="msapplication-TileColor" content="#F5F5F5">
+  <meta name="msapplication-TileImage" content="/assets/favicon/favicon144.png">
+
+  <!-- Windows 8.1 + IE11 and above -->
+  <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml" />
+
+  <style>
+    :root {
+      --h: 3600px;
+      --amt: 0.8;
+      --oma: calc(1 - var(--amt));
+      --oooma: calc(1 / var(--oma));
+      --end: 100vh;
+      --space: 1rem;
+    }
+    
+    .spacer {
+      height: 150vh;
+      /* background: linear-gradient(black, #7b0cffdb, black); */
+      background: linear-gradient(#0a0005, #26041e, #390039, #46005a, #470084, #2512b3, #470084, #46005a, #390039, #26041e, #0a0005);
+    }
+    
+    .container {
+    }
+    
+    .parallax {
+      transform-origin: top;
+      transform: scaleY(var(--oma));
+    }
+    
+    .parallax > * {
+      transform-origin: top;
+      transform: scaleY(var(--oooma));
+    }
+    
+    .overlayg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(#160107db, #6b0000);
+    }
+    
+    .bg {
+      position: sticky;
+      top: 0;
+      height: var(--end);
+      z-index: -1;
+      mix-blend-mode: difference;
+    }
+    
+    .inner-bg {
+      height: calc(var(--end) + var(--amt) * (var(--h) - var(--end)));
+      min-height: 100vh;
+      /* background: linear-gradient(#830808cc, #38358877); */
+      /* background: linear-gradient(#fffc, #0007); */
+      background: repeating-radial-gradient(circle at 50% 100px, #777 0 3px, #a6a6a6 6px, #777 9px);
+      /*background-size: 100% 10px;*/
+    }
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-radial-gradient(circle at 50% 100px, #777 0 3px, #999999 6px, #777 9px);
+      mix-blend-mode: difference;
+    }
+    
+    .content {
+      display: flex;
+      height: var(--h);
+      min-height: 100vh;
+      margin: auto;
+      margin-top: calc(-1 * var(--end));
+      justify-content: center;
+    }
+    
+    .text {
+      color: #685050aa;
+      margin: 2rem 0;
+      max-width: 55vw;
+      font-size: 42px;
+    }
+    
+    .text > * {
+      background: #b142420d;
+      padding: 0.5rem;
+    }
+    
+    .text h2 {
+      font-size: 72px;
+      text-transform: uppercase;
+      width: fit-content;
+      padding: 0 0.5rem;
+      margin: 3rem 0;
+    }
+    
+    .text p {
+      margin: 0;
+    }
+    
+    .text p+p {
+      margin: 0.8rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="spacer"></div>
+  <div class="container">
+    <div class="parallax">
+      <div class="overlayg"></div>
+      <div class="bg">
+        <div class="inner-bg"></div>
+      </div>
+      <div class="overlay"></div>
+      <div class="content">
+        <div class="text">
+          <h2>Beeeegol</h2>
+          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+          <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+          <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way. On her way she met a copy.</p>
+          <p>The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their projects again and again. And if she hasn’t been rewritten, then they are still using her.</p>
+          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="spacer"></div>
+</body>
+</html>
