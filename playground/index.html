@@ -157,9 +157,10 @@
 
     .variant-1 .moving-bg,
     .variant-2 .moving-bg, .variant-2 .parallax,
-    .variant-3 .moving-bg, .variant-3 .parallax,
-    .variant-4 .moving-bg, .variant-4 .parallax,
-    .variant-5 .moving-bg, .variant-5 .parallax {
+    .variant-3 .moving-bg, .variant-3 .parallax, .variant-3 .content,
+    .variant-4 .moving-bg, .variant-4 .parallax, .variant-4 .content,
+    .variant-5 .moving-bg, .variant-5 .parallax, .variant-5 .content,
+    .variant-6 .content {
       mix-blend-mode: difference;
     }
 
@@ -175,6 +176,30 @@
       background: linear-gradient(#2512b3, #470084, #46005a, #390039, #26041e, #0a0005);
     }
 
+    
+    .grad-2 {
+      background: linear-gradient(black, #7b0cffdb, black);
+    }
+    .grad-2a {
+      background: linear-gradient(black, #7b0cffdb);
+    }
+    .grad-2b {
+      background: linear-gradient(#7b0cffdb, black);
+    }
+    
+
+    .grad-3 {
+      background: linear-gradient(#2512b3, #470084, #46005a, #390039, #26041e, #0a0005, #26041e, #390039, #46005a, #470084, #2512b3);
+    }
+    .grad-3a {
+      background: linear-gradient(#2512b3, #470084, #46005a, #390039, #26041e, #0a0005);
+    }
+    .grad-3b {
+      background: linear-gradient(#0a0005, #26041e, #390039, #46005a, #470084, #2512b3);
+    }
+
+
+    
     .container.variant-1 {
       --h: 6000px;
       --amt: 0.8;
@@ -193,16 +218,6 @@
     }
     
 
-    .grad-2 {
-      background: linear-gradient(black, #7b0cffdb, black);
-    }
-    .grad-2a {
-      background: linear-gradient(black, #7b0cffdb);
-    }
-    .grad-2b {
-      background: linear-gradient(#7b0cffdb, black);
-    }
-
     .container.variant-2 {
       --h: 6000px;
       --amt: 0.8;
@@ -215,17 +230,7 @@
 
       background: black;
     }
-    
 
-    .grad-3 {
-      background: linear-gradient(#2512b3, #470084, #46005a, #390039, #26041e, #0a0005, #26041e, #390039, #46005a, #470084, #2512b3);
-    }
-    .grad-3a {
-      background: linear-gradient(#2512b3, #470084, #46005a, #390039, #26041e, #0a0005);
-    }
-    .grad-3b {
-      background: linear-gradient(#0a0005, #26041e, #390039, #46005a, #470084, #2512b3);
-    }
 
     .container.variant-3 {
       --h: 6000px;
@@ -240,10 +245,9 @@
     }
 
     .variant-3 .content {
-      mix-blend-mode: difference;
       background: repeating-radial-gradient(circle at 50% 100px, #777 0 5px, #999999 10px, #777 15px);
     }
-
+    
 
     .container.variant-4 {
       --h: 6000px;
@@ -259,7 +263,6 @@
     }
 
     .variant-4 .content {
-      mix-blend-mode: difference;
       background: repeating-radial-gradient(circle at 50% 100px, whitesmoke 0 10px, #999999 20px, whitesmoke 30px);
     }
 
@@ -275,9 +278,8 @@
 
       background: black;
     }
-
+    
     .variant-5 .content {
-      mix-blend-mode: difference;
       background: repeating-radial-gradient(circle at 50% 80px, whitesmoke 0 10px, #999999 20px, whitesmoke 29px);
     }
 
@@ -295,7 +297,6 @@
     }
 
     .variant-6 .content {
-      mix-blend-mode: difference;
       background: repeating-radial-gradient(at 50% 50px, black 0% 0.1%, whitesmoke 0.12%, black 0.14%);
     }
 
