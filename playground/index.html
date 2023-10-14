@@ -70,6 +70,14 @@
     .container {
       position: relative;
     }
+
+    .container * {
+      pointer-events: none;
+    }
+
+    .container .content * {
+      pointer-events: revert;
+    }
     
     .parallax {
       transform-origin: top;
@@ -289,8 +297,8 @@
       --amt: 0.8;
       
       --fxd-bg-0: linear-gradient(#7b0cffdb, black);
-      --fxd-bg-1: repeating-radial-gradient(at 50% 50px, black 0% 0.1%, whitesmoke 0.12%, black 0.14%);
-      --ext-bg: repeating-radial-gradient(at 50% 60px, black 0% 0.1%, whitesmoke 0.12%, black 0.14%);
+      --fxd-bg-1: repeating-radial-gradient(at 50% 50px, black 0 1.725px, whitesmoke 3.45px, black 5.175px);
+      --ext-bg: repeating-radial-gradient(at 50% 60px, black 0 1.725px, whitesmoke 3.45px, black 5.175px);
       --txt-col: black;
       --txt-bg: #0055;
 
@@ -418,7 +426,7 @@
   <div class="container variant-2">
     <div class="fixed-bg bg-0"></div>
     <div class="parallax">
-    <div class="fixed-bg bg-1"></div>
+      <div class="fixed-bg bg-1"></div>
       <div class="moving-bg">
         <div class="extended-bg"></div>
       </div>
