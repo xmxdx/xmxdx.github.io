@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>xmxdx | Playground</title>
   <meta name="description" content="A basic WebGL shader test w/ curtains.js">
@@ -51,6 +51,7 @@
     }
 
     body {
+      min-height: -webkit-fill-available;
       margin: 0;
       /* font-family: 'helvetica-neue', helvetica, arial, sans-serif; */
     }
@@ -157,11 +158,17 @@
 
     .variant-1 .moving-bg,
     .variant-2 .moving-bg, .variant-2 .parallax,
-    .variant-3 .moving-bg, .variant-3 .parallax, .variant-3 .content,
-    .variant-4 .moving-bg, .variant-4 .parallax, .variant-4 .content,
-    .variant-5 .moving-bg, .variant-5 .parallax, .variant-5 .content,
-    .variant-6 .content {
+    .variant-3 .moving-bg, .variant-3 .parallax,
+    .variant-4 .moving-bg, .variant-4 .parallax,
+    .variant-5 .moving-bg, .variant-5 .parallax {
       mix-blend-mode: difference;
+    }
+    
+    .variant-3 .moving-bg,
+    .variant-4 .moving-bg,
+    .variant-5 .moving-bg,
+    .variant-6 .moving-bg {
+      z-index: 1;
     }
 
 
@@ -237,6 +244,7 @@
       --amt: 0.8;
       
       --fxd-bg-0: linear-gradient(#160107db, #6b0000);
+      --fxd-bg-1: repeating-radial-gradient(circle at 50% 100px, #777 0 5px, #999999 10px, #777 15px);
       --ext-bg: repeating-radial-gradient(circle at 50% 100px, #777 0 5px, #a6a6a6 10px, #777 15px);
       --txt-col: #a400ff;
       --txt-bg: #656e4fa3;
@@ -244,10 +252,6 @@
       background: black;
     }
 
-    .variant-3 .content {
-      background: repeating-radial-gradient(circle at 50% 100px, #777 0 5px, #999999 10px, #777 15px);
-    }
-    
 
     .container.variant-4 {
       --h: 6000px;
@@ -255,15 +259,12 @@
       
       /* --fxd-bg-0: linear-gradient(#160107db, #6b0000); */
       --fxd-bg-0: linear-gradient(#160107db, #930000);
+      --fxd-bg-1: repeating-radial-gradient(circle at 50% 100px, whitesmoke 0 10px, #999999 20px, whitesmoke 30px);
       --ext-bg: repeating-radial-gradient(circle at 50% 100px, whitesmoke 0 10px, #a6a6a6 20px, whitesmoke 30px);
       --txt-col: #98fccf;
       --txt-bg: #656e4fa3;
 
       background: black;
-    }
-
-    .variant-4 .content {
-      background: repeating-radial-gradient(circle at 50% 100px, whitesmoke 0 10px, #999999 20px, whitesmoke 30px);
     }
 
 
@@ -272,15 +273,12 @@
       --amt: 0.8;
       
       --fxd-bg-0: linear-gradient(#2a4b8cdb, #f2c4ba);
+      --fxd-bg-1: repeating-radial-gradient(circle at 50% 80px, whitesmoke 0 10px, #999999 20px, whitesmoke 29px);
       --ext-bg: repeating-radial-gradient(circle at 50% 120px, whitesmoke 0 10px, #a6a6a6 20px, whitesmoke 30px);
       --txt-col: #02501b;
       --txt-bg: #0055;
 
       background: black;
-    }
-    
-    .variant-5 .content {
-      background: repeating-radial-gradient(circle at 50% 80px, whitesmoke 0 10px, #999999 20px, whitesmoke 29px);
     }
 
 
@@ -289,15 +287,12 @@
       --amt: 0.8;
       
       --fxd-bg-0: linear-gradient(#7b0cffdb, black);
+      --fxd-bg-1: repeating-radial-gradient(at 50% 50px, black 0% 0.1%, whitesmoke 0.12%, black 0.14%);
       --ext-bg: repeating-radial-gradient(at 50% 60px, black 0% 0.1%, whitesmoke 0.12%, black 0.14%);
       --txt-col: black;
       --txt-bg: #0055;
 
       background: white;
-    }
-
-    .variant-6 .content {
-      background: repeating-radial-gradient(at 50% 50px, black 0% 0.1%, whitesmoke 0.12%, black 0.14%);
     }
 
 
@@ -321,6 +316,7 @@
     .variant-7 .content {
       background: linear-gradient(#0a07, #03c7);
       background-size: 100% 60px;
+      /* mix-blend-mode: difference; */
     }
   </style>
 </head>
@@ -331,6 +327,7 @@
   <div class="container variant-5">
     <div class="fixed-bg bg-0"></div>
     <div class="parallax">
+      <div class="fixed-bg bg-1"></div>
       <div class="moving-bg">
         <div class="extended-bg"></div>
       </div>
@@ -353,6 +350,7 @@
   <div class="container variant-6">
     <div class="fixed-bg bg-0"></div>
     <div class="parallax">
+      <div class="fixed-bg bg-1"></div>
       <div class="moving-bg">
         <div class="extended-bg"></div>
       </div>
@@ -440,6 +438,7 @@
   <div class="container variant-3">
     <div class="fixed-bg bg-0"></div>
     <div class="parallax">
+      <div class="fixed-bg bg-1"></div>
       <div class="moving-bg">
         <div class="extended-bg"></div>
       </div>
@@ -462,6 +461,7 @@
   <div class="container variant-4">
     <div class="fixed-bg bg-0"></div>
     <div class="parallax">
+      <div class="fixed-bg bg-1"></div>
       <div class="moving-bg">
         <div class="extended-bg"></div>
       </div>
