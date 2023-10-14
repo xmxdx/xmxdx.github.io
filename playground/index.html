@@ -66,6 +66,7 @@
     }
     
     .container {
+      position: relative;
     }
     
     .parallax {
@@ -78,8 +79,7 @@
       transform: scaleY(var(--oooma));
     }
     
-    .fixed-bg-0,
-    .fixed-bg-1 {
+    .fixed-bg {
       position: absolute;
       top: 0;
       left: 0;
@@ -87,15 +87,19 @@
       height: 100%;
     }
     
-    .fixed-bg-0 {
+    .bg-0 {
       background: var(--fxd-bg-0);
       z-index: -3;
     }
     
-    .fixed-bg-1 {
+    .bg-1 {
       background: var(--fxd-bg-1);
       mix-blend-mode: difference;
       z-index: -2;
+    }
+
+    .container > .fixed-bg {
+      z-index: revert;
     }
     
     .moving-bg {
@@ -170,6 +174,8 @@
       --ext-bg: repeating-radial-gradient(circle at 50% 100px, #777 0 3px, #a6a6a6 6px, #777 9px);
       --txt-col: #506868ab;
       --txt-bg: #42b3b30d;
+
+      background: white;
     }
 
     .variant-1 .moving-bg,
@@ -200,6 +206,8 @@
       --ext-bg: repeating-radial-gradient(circle at 50% 100px, #777 0 3px, #a6a6a6 6px, #777 9px);
       --txt-col: #685050;
       --txt-bg: #b142420d;
+
+      background: white;
     }
 
     .variant-2 .parallax,
@@ -228,6 +236,8 @@
       --ext-bg: repeating-radial-gradient(circle at 50% 100px, #777 0 5px, #a6a6a6 10px, #777 15px);
       --txt-col: #a400ff;
       --txt-bg: #656e4fa3;
+
+      background: white;
     }
 
     .variant-3 .content {
@@ -245,6 +255,8 @@
       --ext-bg: repeating-radial-gradient(circle at 50% 100px, whitesmoke 0 10px, #a6a6a6 20px, whitesmoke 30px);
       --txt-col: #98fccf;
       --txt-bg: #656e4fa3;
+
+      background: white;
     }
 
     .variant-4 .content {
@@ -261,6 +273,8 @@
       --ext-bg: repeating-radial-gradient(circle at 50% 120px, whitesmoke 0 10px, #a6a6a6 20px, whitesmoke 30px);
       --txt-col: #02501b;
       --txt-bg: #0055;
+
+      background: black;
     }
 
     .variant-5 .content {
@@ -277,6 +291,8 @@
       --ext-bg: repeating-radial-gradient(at 50% 60px, black 0% 0.1%, whitesmoke 0.12%, black 0.14%);
       --txt-col: black;
       --txt-bg: #0055;
+
+      background: white;
     }
 
     .variant-6 .content {
@@ -293,11 +309,13 @@
       --ext-bg: linear-gradient(#830808cc, #38358877);
       --txt-col: salmon;
       --txt-bg: #0055;
+
+      background: white;
     }
 
     .variant-7 .extended-bg {
       background: linear-gradient(#830808cc, #38358877);
-      background-size: 100% 52px;
+      background-size: 100% 59px;
     }
     
     .variant-7 .content {
@@ -312,8 +330,8 @@
   </div>
   <div class="container variant-1">
     <div class="parallax">
-      <div class="fixed-bg-0"></div>
-      <div class="fixed-bg-1"></div>
+      <div class="fixed-bg bg-0"></div>
+      <div class="fixed-bg bg-1"></div>
       <div class="moving-bg">
         <div class="extended-bg"></div>
       </div>
@@ -334,8 +352,8 @@
     <div class="grad-1a"></div>
   </div>
   <div class="container variant-2">
-    <div class="fixed-bg-0"></div>
-    <div class="fixed-bg-1"></div>
+    <div class="fixed-bg bg-0"></div>
+    <div class="fixed-bg bg-1"></div>
     <div class="parallax">
       <div class="moving-bg">
         <div class="extended-bg"></div>
@@ -356,7 +374,7 @@
     <div class="grad-3"></div>
   </div>
   <div class="container variant-3">
-    <div class="fixed-bg-0"></div>
+    <div class="fixed-bg bg-0"></div>
     <div class="parallax">
       <div class="moving-bg">
         <div class="extended-bg"></div>
@@ -378,7 +396,7 @@
     <div class="grad-3a"></div>
   </div>
   <div class="container variant-4">
-    <div class="fixed-bg-0"></div>
+    <div class="fixed-bg bg-0"></div>
     <div class="parallax">
       <div class="moving-bg">
         <div class="extended-bg"></div>
@@ -399,7 +417,7 @@
     <div class="grad-1"></div>
   </div>
   <div class="container variant-5">
-    <div class="fixed-bg-0"></div>
+    <div class="fixed-bg bg-0"></div>
     <div class="parallax">
       <div class="moving-bg">
         <div class="extended-bg"></div>
@@ -421,7 +439,7 @@
     <div class="grad-1a"></div>
   </div>
   <div class="container variant-6">
-    <div class="fixed-bg-0"></div>
+    <div class="fixed-bg bg-0"></div>
     <div class="parallax">
       <div class="moving-bg">
         <div class="extended-bg"></div>
@@ -442,7 +460,7 @@
     <div class="grad-2b"></div>
   </div>
   <div class="container variant-7">
-    <div class="fixed-bg-0"></div>
+    <div class="fixed-bg bg-0"></div>
     <div class="parallax">
       <div class="moving-bg">
         <div class="extended-bg"></div>
