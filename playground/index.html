@@ -155,6 +155,16 @@
 
     /***** THEMES *****/
 
+    .variant-1 .moving-bg,
+    .variant-2 .moving-bg, .variant-2 .parallax,
+    .variant-3 .moving-bg, .variant-3 .parallax,
+    .variant-4 .moving-bg, .variant-4 .parallax,
+    .variant-5 .moving-bg, .variant-5 .parallax {
+      mix-blend-mode: difference;
+    }
+
+
+    
     .grad-1 {
       background: linear-gradient(#0a0005, #26041e, #390039, #46005a, #470084, #2512b3, #470084, #46005a, #390039, #26041e, #0a0005);
     }
@@ -175,15 +185,11 @@
       --txt-col: #506868ab;
       --txt-bg: #42b3b30d;
 
-      background: white;
+      background: black;
     }
 
-    .variant-1 .moving-bg,
-    .variant-2 .moving-bg,
-    .variant-3 .moving-bg,
-    .variant-4 .moving-bg,
-    .variant-5 .moving-bg {
-      mix-blend-mode: difference;
+    .variant-1 .fixed-bg.bg-1 {
+      z-index: 0;
     }
     
 
@@ -207,14 +213,7 @@
       --txt-col: #685050;
       --txt-bg: #b142420d;
 
-      background: white;
-    }
-
-    .variant-2 .parallax,
-    .variant-3 .parallax,
-    .variant-4 .parallax,
-    .variant-5 .parallax {
-      mix-blend-mode: difference;
+      background: black;
     }
     
 
@@ -237,7 +236,7 @@
       --txt-col: #a400ff;
       --txt-bg: #656e4fa3;
 
-      background: white;
+      background: black;
     }
 
     .variant-3 .content {
@@ -250,13 +249,13 @@
       --h: 6000px;
       --amt: 0.8;
       
-      --fxd-bg-0: linear-gradient(#160107db, #6b0000);
+      /* --fxd-bg-0: linear-gradient(#160107db, #6b0000); */
       --fxd-bg-0: linear-gradient(#160107db, #930000);
       --ext-bg: repeating-radial-gradient(circle at 50% 100px, whitesmoke 0 10px, #a6a6a6 20px, whitesmoke 30px);
       --txt-col: #98fccf;
       --txt-bg: #656e4fa3;
 
-      background: white;
+      background: black;
     }
 
     .variant-4 .content {
@@ -353,8 +352,8 @@
   </div>
   <div class="container variant-2">
     <div class="fixed-bg bg-0"></div>
-    <div class="fixed-bg bg-1"></div>
     <div class="parallax">
+    <div class="fixed-bg bg-1"></div>
       <div class="moving-bg">
         <div class="extended-bg"></div>
       </div>
