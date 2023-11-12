@@ -404,13 +404,13 @@
     }
 
     :root {
-        animation-name: glide-mix-a, glide-mix-b, glide-col-as, glide-col-ae, glide-col-bs, glide-col-be;
-        animation-duration: 15s, 13s, 5s, 7s, 9s, 3s;
-        animation-timing-function: ease-in-out;
+        animation-name: glide-mix-a, glide-col-as, glide-col-ae, glide-mix-b, glide-col-bs, glide-col-be;
+        animation-duration: 15s, 5s, 7s, 13s, 9s, 3s;
+        animation-timing-function: cubic-bezier(0.9, 0.1, 0.1, 0.9), ease-in-out, ease-in-out;
         animation-direction: alternate;
         animation-iteration-count: infinite;
         --col-as: color-mix(in xyz, #1600ffdb var(--mixpoint-col-as), #191773 calc(100% - var(--mixpoint-col-as)));
-        --col-ae: color-mix(in xyz, #fff200cc var(--mixpoint-col-ae), #b6b647 calc(100% - var(--mixpoint-col-ae)));
+        --col-ae: color-mix(in xyz, #c79c7dcc var(--mixpoint-col-ae), #e6e3cd calc(100% - var(--mixpoint-col-ae)));
         --col-bs: color-mix(in xyz, #7b0cffdb var(--mixpoint-col-bs), #56178d calc(100% - var(--mixpoint-col-bs)));
         --col-be: color-mix(in xyz, #830808cc var(--mixpoint-col-be), #e45555 calc(100% - var(--mixpoint-col-be)));
         --col-start: color-mix(in xyz, var(--col-as) var(--mixpoint-mix-a), var(--col-ae) calc(100% - var(--mixpoint-mix-a)));
@@ -420,15 +420,14 @@
 
     .grad-4 {
       /* background: var(--col-grad, linear-gradient(#b6b647, #7b0cffdb)); */
-      background: repeating-linear-gradient(transparent 0px 8.5px, black 0px 10px), var(--col-grad, linear-gradient(#fffef2, #9961ffdb));
+      background: repeating-linear-gradient(transparent 0px 8.5px, #111111 0px 10px), var(--col-grad, linear-gradient(#fffef2, #9961ffdb));
     }
-
   </style>
 </head>
 <body>
   <div class="spacer" style="height: 100vh;">
     <div class="grad-4">
-      <div style="padding-top: 269.5px; text-align: center; font-family: sans-serif; font-size: 6px; line-height: 10px; letter-spacing: 3px; text-transform: uppercase;">
+      <div style="padding-top: 269.5px;text-align: center;font-family: sans-serif;font-size: 6px;line-height: 10px;letter-spacing: 3px;text-transform: uppercase;color: #333333;mix-blend-mode: luminosity;">
         <span>There are so many roots to the tree of anger</span>
         <br>
         <span>that sometimes the branches shatter</span>
@@ -465,8 +464,7 @@
         <br>
         <span>all these liberations.</span>
         <br>
-        <br>
-        <span>- - -</span>
+        <br><br><br><span style="font-weight: bold;">∙&nbsp;-&nbsp;–&nbsp;-&nbsp;∙</span>
         <br>
         <br>
         <span>Audre Lord</span>
