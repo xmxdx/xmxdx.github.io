@@ -158,7 +158,7 @@
       margin: 0;
     }
     
-    .text p+p {
+    .text p + p {
       margin: 0.8rem 0;
     }
 
@@ -328,11 +328,105 @@
       background-size: 100% 60px;
       /* mix-blend-mode: difference; */
     }
+
+
+
+    @property --mixpoint-mix-a {
+      syntax: "<percentage>";
+      inherits: false;
+      initial-value: 0%;
+    }
+
+    @property --mixpoint-mix-b {
+      syntax: "<percentage>";
+      inherits: false;
+      initial-value: 0%;
+    }
+
+    @property --mixpoint-col-as {
+      syntax: "<percentage>";
+      inherits: false;
+      initial-value: 0%;
+    }
+
+    @property --mixpoint-col-ae {
+      syntax: "<percentage>";
+      inherits: false;
+      initial-value: 0%;
+    }
+
+    @property --mixpoint-col-bs {
+      syntax: "<percentage>";
+      inherits: false;
+      initial-value: 0%;
+    }
+
+    @property --mixpoint-col-be {
+      syntax: "<percentage>";
+      inherits: false;
+      initial-value: 0%;
+    }
+
+    @keyframes glide-mix-a {
+      100% {
+        --mixpoint-mix-a: 100%;
+      }
+    }
+
+    @keyframes glide-mix-b {
+      100% {
+        --mixpoint-mix-b: 100%;
+      }
+    }
+
+    @keyframes glide-col-as {
+      100% {
+        --mixpoint-col-as: 100%;
+      }
+    }
+
+    @keyframes glide-col-ae {
+      100% {
+        --mixpoint-col-ae: 100%;
+      }
+    }
+
+    @keyframes glide-col-bs {
+      100% {
+        --mixpoint-col-bs: 100%;
+      }
+    }
+
+    @keyframes glide-col-be {
+      100% {
+        --mixpoint-col-be: 100%;
+      }
+    }
+
+    :root {
+        animation-name: glide-mix-a, glide-mix-b, glide-col-as, glide-col-ae, glide-col-bs, glide-col-be;
+        animation-duration: 15s, 13s, 5s, 7s, 9s, 3s;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        --col-as: color-mix(in xyz, #1600ffdb var(--mixpoint-col-as), #191773 calc(100% - var(--mixpoint-col-as)));
+        --col-ae: color-mix(in xyz, #fff200cc var(--mixpoint-col-ae), #b6b647 calc(100% - var(--mixpoint-col-ae)));
+        --col-bs: color-mix(in xyz, #7b0cffdb var(--mixpoint-col-bs), #56178d calc(100% - var(--mixpoint-col-bs)));
+        --col-be: color-mix(in xyz, #830808cc var(--mixpoint-col-be), #e45555 calc(100% - var(--mixpoint-col-be)));
+        --col-start: color-mix(in xyz, var(--col-as) var(--mixpoint-mix-a), var(--col-ae) calc(100% - var(--mixpoint-mix-a)));
+        --col-end: color-mix(in xyz, var(--col-bs)  var(--mixpoint-mix-b), var(--col-be) calc(100% - var(--mixpoint-mix-b)));
+        --col-grad: linear-gradient(in xyz, var(--col-start), var(--col-end));
+    }
+
+    .grad-4 {
+      background: var(--col-grad, linear-gradient(#b6b647, #7b0cffdb));
+    }
+
   </style>
 </head>
 <body>
   <div class="spacer">
-    <div class="grad-1b"></div>
+    <div class="grad-4"></div>
   </div>
   <div class="container variant-5">
     <div class="fixed-bg bg-0"></div>
