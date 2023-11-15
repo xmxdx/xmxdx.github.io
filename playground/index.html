@@ -422,12 +422,30 @@
       /* background: var(--col-grad, linear-gradient(#b6b647, #7b0cffdb)); */
       background: repeating-linear-gradient(transparent 0px 8.5px, #111111 0px 10px), var(--col-grad, linear-gradient(#fffef2, #9961ffdb));
     }
+
+    #poem {
+      padding-top: 269.5px;
+      text-align: center;
+      font-family: sans-serif;
+      font-size: 6px;
+      line-height: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #333;
+      mix-blend-mode: luminosity;
+    }
+
+    .poem-bg > span {
+      background: #333;
+      color: #ccc;
+      padding: 2px;
+    }
   </style>
 </head>
 <body>
   <div class="spacer" style="height: 100vh;min-height: 540px;">
     <div class="grad-4">
-      <div style="padding-top: 269.5px;text-align: center;font-family: sans-serif;font-size: 6px;line-height: 10px;letter-spacing: 3px;text-transform: uppercase;color: #333333;mix-blend-mode: luminosity;">
+      <div id="poem" class="poem-bg">
         <span>There are so many roots to the tree of anger</span>
         <br>
         <span>that sometimes the branches shatter</span>
