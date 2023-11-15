@@ -422,6 +422,7 @@
       /* background: var(--col-grad, linear-gradient(#b6b647, #7b0cffdb)); */
       background: repeating-linear-gradient(transparent 0px 8.5px, #111111 0px 10px), var(--col-grad, linear-gradient(#fffef2, #9961ffdb));
       background-blend-mode: luminosity;
+      cursor: help;
     }
 
     #poem {
@@ -437,9 +438,15 @@
     }
 
     .poem-bg > span {
-      background: #333;
-      color: #ccc;
       padding: 1.5px 5px 1px;
+    }
+    
+    @media (hover: hover) {
+      .poem-bg > span:hover {
+        background: #333;
+        color: #ccc;
+        cursor: none;
+      }
     }
   </style>
 </head>
